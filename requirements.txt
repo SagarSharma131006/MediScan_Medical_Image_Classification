@@ -1,1 +1,14 @@
-
+Torch
+Torchvision
+Torchaudio
+Numpy
+Pandas
+Matplotlib
+Seaborn
+Scikit-learn
+Pillow
+Opencv-python
+Tqdm
+Grad-cam
+Wandb
+Streamlit
