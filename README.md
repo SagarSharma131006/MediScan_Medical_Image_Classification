@@ -757,3 +757,80 @@ The training phase will include:
 10. Saving the best ResNet50 model
 
 After training, both models will be evaluated and compared using the testing dataset.
+
+
+---
+
+# 🚀 Day 4 — Model Training
+
+Day 4 focused on training the transfer learning models prepared during Day 3.
+
+The two models trained were:
+
+- EfficientNet-B0
+- ResNet50
+
+Both models were trained using the prepared **70/15/15 dataset split** and evaluated using the validation dataset during training.
+
+---
+
+## Completed Tasks
+
+* [x] Recreated pretrained EfficientNet-B0
+* [x] Recreated pretrained ResNet50
+* [x] Configured both models for 4-class classification
+* [x] Loaded pretrained ImageNet weights
+* [x] Frozen pretrained backbone layers
+* [x] Kept classification layers trainable
+* [x] Defined CrossEntropyLoss
+* [x] Configured Adam optimizers
+* [x] Verified training pipeline with a 1-epoch test
+* [x] Trained EfficientNet-B0 for 10 epochs
+* [x] Trained ResNet50 for 10 epochs
+* [x] Recorded training and validation loss
+* [x] Recorded training and validation accuracy
+* [x] Generated loss curves
+* [x] Generated accuracy curves
+* [x] Saved best model weights
+* [x] Saved training history
+
+---
+
+## ⚙️ Training Configuration
+
+The same basic training configuration was used for both models.
+
+| Parameter | Value |
+|---|---|
+| Dataset Split | 70/15/15 |
+| Training Images | 5,040 |
+| Validation Images | 1,080 |
+| Testing Images | 1,080 |
+| Number of Classes | 4 |
+| Input Size | 224 × 224 |
+| Batch Size | 32 |
+| Number of Epochs | 10 |
+| Loss Function | CrossEntropyLoss |
+| Optimizer | Adam |
+| Learning Rate | 0.001 |
+| Pretrained Weights | ImageNet |
+| Training Device | Google Colab GPU |
+
+---
+
+# 🧠 Transfer Learning Setup
+
+Both models use pretrained ImageNet weights.
+
+The pretrained feature extraction layers were frozen, while the final classification layers were trained for the four MediScan classes.
+
+```text
+Pretrained Model
+       ↓
+Feature Extraction
+       ↓
+Frozen Layers
+       ↓
+Trainable Classification Layer
+       ↓
+4-Class Output
