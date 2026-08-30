@@ -65,3 +65,21 @@ The dataset is well-balanced across all four classes. Each class contains an equ
 ## Important Note
 
 The dataset file `archive.zip` and extracted `data/raw/` folder are not uploaded to GitHub because the dataset is large. The dataset is stored in Google Drive and used directly in Google Colab.
+
+## Day 2 - Data Preprocessing and Split
+
+- Image dimensions and color modes were analyzed.
+- Images will be resized and converted to RGB during training.
+- A stratified 70/15/15 train-validation-test split was created.
+- Class balance was preserved across all splits.
+- Class-to-index mapping was saved for model training.
+
+### Day 2 Outputs
+
+- `data/processed/day2_train_val_test_split.csv`
+- `data/processed/train.csv`
+- `data/processed/val.csv`
+- `data/processed/test.csv`
+- `data/processed/class_to_idx.json`
+- `figures/day2_split_distribution.png`
+- `reports/day2_summary.md`
