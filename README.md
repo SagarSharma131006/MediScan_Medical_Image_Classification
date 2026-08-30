@@ -1,17 +1,67 @@
-# 🧠 MediScan — Medical Image Classification
-## Day 1 Progress
+# MediScan - Medical Image Classification
 
-- Google Colab setup completed
-- Brain MRI dataset loaded from Google Drive
-- Dataset extracted successfully
-- Dataset contains 7,200 images
-- Classes: glioma, meningioma, notumor, pituitary
-- Dataset manifest created
-- Sample MRI images visualized
+MediScan is a deep learning project focused on classifying brain MRI images into four medical categories: glioma, meningioma, pituitary tumor, and no tumor. The project follows a structured 15-day workflow covering dataset exploration, preprocessing, model training, evaluation, Grad-CAM explainability, and web app deployment.
 
-[x] Colab repo clone ho gaya
-[x] Dataset extract ho gaya
-[x] Total 7200 images show ho rahi hain
-[x] 4 classes show ho rahi hain
-[x] Sample images display ho gayi
-[x] Day 1 summary save ho gaya
+## Day 1 - Project Setup and Dataset Exploration
+
+### Objective
+
+The goal of Day 1 was to set up the project environment, connect Google Colab with the GitHub repository, load the brain MRI dataset, and perform an initial dataset exploration.
+
+### Work Completed
+
+- Google Colab environment was successfully configured.
+- GitHub repository was cloned inside Colab.
+- Brain MRI dataset was loaded from Google Drive.
+- Dataset was extracted successfully.
+- Dataset folder structure was verified.
+- Dataset manifest CSV was created.
+- Class distribution was analyzed.
+- Sample MRI images were visualized and saved.
+
+### Dataset Overview
+
+| Detail | Value |
+|---|---|
+| Dataset Type | Brain MRI Images |
+| Total Images | 7,200 |
+| Number of Classes | 4 |
+| Training Images | 5,600 |
+| Testing Images | 1,600 |
+
+### Classes
+
+| Class Name | Meaning |
+|---|---|
+| glioma | MRI images showing glioma tumor |
+| meningioma | MRI images showing meningioma tumor |
+| pituitary | MRI images showing pituitary tumor |
+| notumor | MRI images with no tumor |
+
+### Key Insight
+
+The dataset is well-balanced across all four classes. Each class contains an equal number of training and testing images, which is helpful for building a fair classification model. This reduces the risk of the model becoming biased toward one class during training.
+
+### Day 1 Outputs
+
+| Output File | Purpose |
+|---|---|
+| `data/processed/day1_dataset_manifest.csv` | Stores image paths, labels, and original split information |
+| `figures/day1_sample_images.png` | Shows sample MRI images from each class |
+| `reports/day1_summary.md` | Contains Day 1 summary and dataset details |
+
+### Day 1 Status
+
+| Task | Status |
+|---|---|
+| Colab setup completed | Done |
+| GitHub repo cloned | Done |
+| Dataset extracted | Done |
+| Total 7,200 images verified | Done |
+| Four classes verified | Done |
+| Sample images visualized | Done |
+| Day 1 summary saved | Done |
+
+## Important Note
+
+The dataset file `archive.zip` and extracted `data/raw/` folder are not uploaded to GitHub because the dataset is large. The dataset is stored in Google Drive and used directly in Google Colab.
