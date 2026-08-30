@@ -1,33 +1,7 @@
-# Dataset
-data/
-
-# Trained models
-models/*.pth
+archive.zip
+*.zip
+data/raw/
 models/*.pt
-models/*.pth.tar
-
-# Python
+models/*.pth
 __pycache__/
-*.py[cod]
-*.pyo
-
-# Jupyter
 .ipynb_checkpoints/
-
-# Virtual environments
-venv/
-.venv/
-env/
-
-# Environment variables
-.env
-
-# Logs
-logs/
-
-# Weights & Biases
-wandb/
-
-# OS files
-.DS_Store
-Thumbs.db
