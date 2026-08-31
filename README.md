@@ -1,6 +1,6 @@
 # MediScan - Medical Image Classification
 
-MediScan is a deep learning project focused on classifying brain MRI images into four medical categories: glioma, meningioma, pituitary tumor, and no tumor. The project follows a structured 15-day workflow covering dataset exploration, preprocessing, model training, evaluation, Grad-CAM explainability, and web app deployment.
+MediScan is a deep learning project focused on classifying brain MRI images into four medical categories: glioma, meningioma, pituitary tumor, and no tumor. The project follows a structured 15-day workflow covering dataset exploration, preprocessing, data augmentation, model training, evaluation, Grad-CAM explainability, and web app deployment.
 
 ## Day 1 - Project Setup and Dataset Exploration
 
@@ -66,13 +66,40 @@ The dataset is well-balanced across all four classes. Each class contains an equ
 
 The dataset file `archive.zip` and extracted `data/raw/` folder are not uploaded to GitHub because the dataset is large. The dataset is stored in Google Drive and used directly in Google Colab.
 
-## Day 2 - Data Preprocessing and Split
+---
+
+# Day 2 - Data Preprocessing and Dataset Split
+
+### Objective
+
+The goal of Day 2 was to analyze the image data, prepare the dataset for model training, and create a stratified 70/15/15 train-validation-test split.
+
+### Work Completed
 
 - Image dimensions and color modes were analyzed.
-- Images will be resized and converted to RGB during training.
+- Images were prepared for resizing to 224 × 224 pixels.
+- Images were converted to RGB format during preprocessing.
 - A stratified 70/15/15 train-validation-test split was created.
 - Class balance was preserved across all splits.
-- Class-to-index mapping was saved for model training.
+- Class-to-index mapping was created and saved.
+
+### Dataset Split
+
+| Split | Images |
+|---|---:|
+| Training | 5,040 |
+| Validation | 1,080 |
+| Testing | 1,080 |
+| Total | 7,200 |
+
+### Class Mapping
+
+| Class | Index |
+|---|---:|
+| glioma | 0 |
+| meningioma | 1 |
+| notumor | 2 |
+| pituitary | 3 |
 
 ### Day 2 Outputs
 
@@ -83,3 +110,37 @@ The dataset file `archive.zip` and extracted `data/raw/` folder are not uploaded
 - `data/processed/class_to_idx.json`
 - `figures/day2_split_distribution.png`
 - `reports/day2_summary.md`
+
+---
+
+# Day 3 - Data Augmentation
+
+### Objective
+
+The goal of Day 3 was to implement data augmentation techniques for the MRI training images and visually verify their effects.
+
+### Work Completed
+
+The following augmentation techniques were implemented:
+
+- Random Horizontal Flip
+- Random Rotation
+- Color Jitter
+- Random Affine Transformation
+
+The augmentation pipeline was created using PyTorch/Torchvision transforms.
+
+### Augmentation Pipeline
+
+```text
+Resize
+   ↓
+Random Horizontal Flip
+   ↓
+Random Rotation
+   ↓
+Color Jitter
+   ↓
+Random Affine Transformation
+   ↓
+ToTensor
