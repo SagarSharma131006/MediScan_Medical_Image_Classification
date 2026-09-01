@@ -144,3 +144,40 @@ Color Jitter
 Random Affine Transformation
    ↓
 ToTensor
+
+## Day 4 - Custom Dataset and DataLoader
+
+### Objective
+
+The goal of Day 4 was to implement a custom PyTorch Dataset and DataLoaders for efficient batch-wise loading of MRI images.
+
+### Work Completed
+
+- Implemented a custom PyTorch Dataset.
+- Loaded training, validation, and testing images.
+- Converted images to RGB.
+- Applied training and evaluation transformations.
+- Converted class names into integer class indices.
+- Created PyTorch DataLoaders.
+- Configured batch size of 32.
+- Configured multiple workers for parallel data loading.
+- Enabled pinned memory.
+- Enabled DataLoader prefetching.
+- Verified complete training DataLoader iteration.
+
+### DataLoader Configuration
+
+| Parameter | Value |
+|---|---:|
+| Batch Size | 32 |
+| Workers | 2 |
+| Prefetch Factor | 2 |
+| Pin Memory | True |
+
+### Batch Verification
+
+```text
+Images shape : torch.Size([32, 3, 224, 224])
+Labels shape : torch.Size([32])
+Images dtype : torch.float32
+Labels dtype : torch.int64
