@@ -181,3 +181,59 @@ Images shape : torch.Size([32, 3, 224, 224])
 Labels shape : torch.Size([32])
 Images dtype : torch.float32
 Labels dtype : torch.int64
+
+## Day 5 - Base Model Setup
+
+### Objective
+
+The goal of Day 5 was to set up a pre-trained CNN using transfer learning and modify its classifier head for four-class brain MRI classification.
+
+### Work Completed
+
+- Loaded a pre-trained EfficientNet-B0 model.
+- Used pre-trained ImageNet weights.
+- Inspected the original classifier.
+- Replaced the original classifier with a four-class classifier.
+- Frozen the EfficientNet-B0 feature extraction layers.
+- Moved the model to the CUDA device.
+- Verified trainable and frozen parameters.
+
+### Model Configuration
+
+| Parameter | Value |
+|---|---|
+| Architecture | EfficientNet-B0 |
+| Pre-trained | Yes |
+| Input Size | 224 × 224 |
+| Number of Classes | 4 |
+| Device | CUDA |
+| Dropout | 0.2 |
+| Classifier | Linear(1280 → 4) |
+
+### Class Mapping
+
+| Class | Index |
+|---|---:|
+| glioma | 0 |
+| meningioma | 1 |
+| notumor | 2 |
+| pituitary | 3 |
+
+### Parameter Verification
+
+| Parameter | Count |
+|---|---:|
+| Total Parameters | 4,012,672 |
+| Trainable Parameters | 5,124 |
+| Frozen Parameters | 4,007,548 |
+
+### Day 5 Status
+
+| Task | Status |
+|---|---|
+| Pre-trained EfficientNet-B0 loaded | Done |
+| Classifier head modified | Done |
+| Base model frozen | Done |
+| CUDA setup | Done |
+| Parameter verification | Done |
+| Final model verification | Done |
