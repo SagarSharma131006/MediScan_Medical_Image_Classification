@@ -888,3 +888,63 @@ reports/
 ├── day7_training_history.csv
 └── day7_training_history.json
 ```
+## Day 8 — Hyperparameter Tuning
+
+Day 8 focused on improving the EfficientNet-B0 baseline through
+systematic hyperparameter tuning.
+
+### Hyperparameters Tuned
+
+- Learning Rate
+- Batch Size
+- Dropout Rate
+- Data Augmentation Strength
+
+### Tuning Results
+
+| Hyperparameter | Best Configuration | Best Validation Accuracy |
+|---|---:|---:|
+| Learning Rate | 0.002 | 87.69% |
+| Dropout | 0.1 | 87.69% |
+| Batch Size | 32 | 87.69% |
+| Augmentation | Weak | 89.44% |
+
+> Dropout 0.1 and 0.2 produced the same best validation accuracy
+> during tuning. Dropout 0.1 was selected for the final configuration.
+
+### Final Configuration
+
+- Architecture: EfficientNet-B0
+- Learning Rate: 0.002
+- Batch Size: 32
+- Dropout: 0.1
+- Augmentation: Weak
+- Epochs: 10
+- Loss: CrossEntropyLoss
+- Optimizer: Adam
+- Scheduler: StepLR
+- Device: CUDA
+
+### Final Result
+
+The final 10-epoch verification achieved:
+
+- **Best Validation Accuracy: 90.09%**
+- **Best Epoch: 9**
+- **Best Validation Loss: 0.2833**
+
+Compared with Day 7's best validation accuracy of **87.22%**,
+Day 8 improved validation accuracy by **2.87 percentage points**.
+
+### Day 8 Artifacts
+
+- `notebooks/Day_08_Hyperparameter_Tuning.ipynb`
+- `reports/day8_final_training_history.csv`
+- `reports/day8_hyperparameter_tuning_results.csv`
+- `reports/day8_final_configuration.json`
+- `reports/day8_summary.md`
+- `figures/day8_final_loss_curve.png`
+- `figures/day8_final_accuracy_curve.png`
+
+The test set remained untouched during hyperparameter tuning and is
+reserved for Day 9 evaluation.
