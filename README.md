@@ -822,8 +822,69 @@ It is **not a medical diagnostic system** and should not be used as a substitute
 
 ---
 
-# ⭐ Project Status
+## 📅 Day 7 — Model Training
 
-**Days Completed: 6 / 15**
+### 🎯 Objective
 
-> Building MediScan step by step — from raw MRI images to an explainable deep learning application. 🚀🧠
+Train the pretrained EfficientNet-B0 model and monitor training and validation performance over multiple epochs.
+
+### 🔧 Training Configuration
+
+- **Architecture:** EfficientNet-B0
+- **Pretrained Weights:** ImageNet
+- **Number of Classes:** 4
+- **Trainable Parameters:** 5,124
+- **Frozen Parameters:** 4,007,548
+- **Training Samples:** 5,040
+- **Validation Samples:** 1,080
+- **Batch Size:** 32
+- **Epochs:** 10
+- **Loss Function:** CrossEntropyLoss
+- **Optimizer:** Adam
+- **Initial Learning Rate:** 0.001
+- **Scheduler:** StepLR
+- **Step Size:** 5
+- **Gamma:** 0.1
+- **Device:** CUDA / NVIDIA Tesla T4
+
+### 📊 Training Results
+
+| Metric | Result |
+|---|---:|
+| Best Validation Accuracy | **87.22%** |
+| Best Epoch | **6** |
+| Final Training Accuracy | **85.73%** |
+| Final Validation Accuracy | **86.67%** |
+| Best Validation Loss | **0.3943** |
+
+### 📈 Learning Rate Schedule
+
+- Epochs 1–5: `0.001`
+- Epochs 6–10: `0.0001`
+
+The learning rate was reduced by the StepLR scheduler after epoch 5.
+
+### 🔍 Observations
+
+- Training loss decreased from **0.6854** to **0.3948**.
+- Validation loss decreased overall from **0.5241** to **0.4072**.
+- Validation accuracy improved from **82.96%** to a maximum of **87.22%**.
+- The project target of **>85% accuracy** was achieved.
+- Training and validation curves were generated to monitor model performance.
+- The test dataset was **not used during Day 7 training**.
+
+### 📁 Day 7 Artifacts
+
+```text
+figures/
+├── day7_loss_curve.png
+└── day7_accuracy_curve.png
+
+models/
+└── efficientnet_b0_best_day7.pth
+
+reports/
+├── day7_summary.md
+├── day7_training_history.csv
+└── day7_training_history.json
+```
