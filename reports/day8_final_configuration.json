@@ -1,0 +1,42 @@
+{
+    "baseline": {
+        "learning_rate": 0.001,
+        "batch_size": 32,
+        "dropout": 0.2,
+        "augmentation": "baseline"
+    },
+    "tuning_parameters": {
+        "learning_rate": [
+            0.0005,
+            0.001,
+            0.002
+        ],
+        "dropout": [
+            0.1,
+            0.2,
+            0.4
+        ],
+        "batch_size": [
+            16,
+            32,
+            64
+        ],
+        "augmentation": [
+            "weak",
+            "baseline",
+            "strong"
+        ]
+    },
+    "best_configuration": {
+        "learning_rate": 0.002,
+        "batch_size": 32,
+        "dropout": 0.1,
+        "augmentation": "weak"
+    },
+    "final_result": {
+        "epochs": 10,
+        "best_epoch": 9,
+        "best_val_accuracy": 0.9009259259259259,
+        "best_val_loss": 0.28331556253963047
+    }
+}

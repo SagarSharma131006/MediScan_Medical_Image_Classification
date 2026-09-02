@@ -1,0 +1,13 @@
+parameter,value,best_val_accuracy,best_epoch
+learning_rate,0.0005,0.8685185185185185,5
+learning_rate,0.001,0.875,5
+learning_rate,0.002,0.8768518518518519,5
+dropout,0.1,0.8768518518518519,5
+dropout,0.2,0.8768518518518519,5
+dropout,0.4,0.8731481481481481,5
+batch_size,16,0.875,5
+batch_size,32,0.8768518518518519,5
+batch_size,64,0.8685185185185185,3
+augmentation,weak,0.8944444444444445,5
+augmentation,baseline,0.8768518518518519,5
+augmentation,strong,0.8462962962962963,5
