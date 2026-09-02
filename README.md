@@ -140,7 +140,7 @@ The overall MediScan pipeline is:
 | Day 4 | Custom Dataset & DataLoader | ✅ Completed |
 | Day 5 | Transfer Learning & Base Model | ✅ Completed |
 | Day 6 | Training Loop Setup | ✅ Completed |
-| Day 7 | Model Training | 🔄 Upcoming |
+| Day 7 | Model Training | ✅ Completed |
 | Day 8 | Validation & Model Monitoring | 🔄 Upcoming |
 | Day 9 | Model Evaluation | 🔄 Upcoming |
 | Day 10 | Confusion Matrix & Classification Report | 🔄 Upcoming |
