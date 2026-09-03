@@ -130,7 +130,7 @@ The overall MediScan pipeline is:
 
 ---
 
-# 📅 15-Day Development Roadmap
+## 📅 15-Day Development Roadmap
 
 | Day | Task | Status |
 |---|---|---|
@@ -140,15 +140,15 @@ The overall MediScan pipeline is:
 | Day 4 | Custom Dataset & DataLoader | ✅ Completed |
 | Day 5 | Transfer Learning & Base Model | ✅ Completed |
 | Day 6 | Training Loop Setup | ✅ Completed |
-| Day 7 | Model Training | ✅ Completed |
-| Day 8 | Validation & Model Monitoring | 🔄 Upcoming |
-| Day 9 | Model Evaluation | 🔄 Upcoming |
-| Day 10 | Confusion Matrix & Classification Report | 🔄 Upcoming |
-| Day 11 | Model Improvement & Fine-Tuning | 🔄 Upcoming |
-| Day 12 | Grad-CAM Explainability | 🔄 Upcoming |
-| Day 13 | Model Saving & Inference | 🔄 Upcoming |
-| Day 14 | Streamlit Web Application | 🔄 Upcoming |
-| Day 15 | Final Integration & Documentation | 🔄 Upcoming |
+| Day 7 | Model Training & Performance Curves | ✅ Completed |
+| Day 8 | Hyperparameter Tuning | ✅ Completed |
+| Day 9 | Model Evaluation | ✅ Completed |
+| Day 10 | Grad-CAM Explainability | ✅ Completed |
+| Day 11 | Second Architecture Comparison | 🔄 Upcoming |
+| Day 12 | Streamlit/Flask Web Application | 🔄 Upcoming |
+| Day 13 | Experiment Tracking | 🔄 Upcoming |
+| Day 14 | Error & Edge-Case Analysis | 🔄 Upcoming |
+| Day 15 | Deployment, Model Card & Presentation | 🔄 Upcoming |
 
 ---
 
