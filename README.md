@@ -996,3 +996,65 @@ The optimized EfficientNet-B0 model from Day 8 was evaluated on the held-out tes
 - `reports/day9_summary.md`
 - `figures/day9_confusion_matrix.png`
 - `figures/day9_roc_curves.png`
+
+
+
+
+## 📅 Day 10 — Grad-CAM Explainability
+
+### 🎯 Objective
+
+The objective of Day 10 was to implement **Grad-CAM (Gradient-weighted Class Activation Mapping)** for the EfficientNet-B0 model and visualize the image regions that contributed to the model's predictions.
+
+This provides an explainability layer for the brain MRI classification model.
+
+### 🧠 Grad-CAM Implementation
+
+Grad-CAM was implemented using the `pytorch-grad-cam` library.
+
+**Model:** EfficientNet-B0  
+**Input Size:** 224 × 224  
+**Number of Classes:** 4  
+**Target Layer:** Final feature block of EfficientNet-B0  
+**Target Class:** Predicted class
+
+The generated Grad-CAM heatmaps were overlaid on the MRI images to visualize the regions influencing the model's prediction.
+
+### 🔬 Explainability Samples
+
+A total of **12 Grad-CAM samples** were generated:
+
+| Class | Samples |
+|---|---:|
+| Glioma | 3 |
+| Meningioma | 3 |
+| No Tumor | 3 |
+| Pituitary | 3 |
+| **Total** | **12** |
+
+The samples were selected from the test dataset and include both correct and incorrect predictions.
+
+### 📊 Grad-CAM Sample Results
+
+- Total samples: **12**
+- Correct predictions: **11**
+- Incorrect predictions: **1**
+- Sample accuracy: **91.67%**
+- Average confidence: **89.52%**
+
+One selected sample was misclassified:
+
+- **True class:** Pituitary
+- **Predicted class:** No Tumor
+- **Confidence:** 62.26%
+
+This incorrect example was retained because it provides a useful case for inspecting the model's attention through Grad-CAM.
+
+### 🖼️ Generated Visualizations
+
+The following explainability artifacts were generated:
+
+```text
+figures/
+├── day10_gradcam_sample_01...12.png
+└── day10_gradcam_contact_sheet.png
