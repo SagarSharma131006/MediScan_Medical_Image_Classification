@@ -1,0 +1,13 @@
+sample_number,dataset_index,true_class,predicted_class,confidence,correct,cam_min,cam_max,figure_path
+1,2,glioma,glioma,0.995716392993927,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_01_glioma_pred_glioma.png
+2,4,glioma,glioma,0.9945726990699768,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_02_glioma_pred_glioma.png
+3,5,glioma,glioma,0.978857696056366,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_03_glioma_pred_glioma.png
+4,0,meningioma,meningioma,0.6565358638763428,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_04_meningioma_pred_meningioma.png
+5,3,meningioma,meningioma,0.7160441875457764,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_05_meningioma_pred_meningioma.png
+6,15,meningioma,meningioma,0.977618932723999,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_06_meningioma_pred_meningioma.png
+7,1,notumor,notumor,0.9270078539848328,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_07_notumor_pred_notumor.png
+8,7,notumor,notumor,0.9932465553283691,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_08_notumor_pred_notumor.png
+9,9,notumor,notumor,0.9853274822235107,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_09_notumor_pred_notumor.png
+10,10,pituitary,pituitary,0.9896975159645081,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_10_pituitary_pred_pituitary.png
+11,13,pituitary,notumor,0.6225515604019165,False,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_11_pituitary_pred_notumor.png
+12,22,pituitary,pituitary,0.9057470560073853,True,0.0,0.9999998807907104,/content/drive/MyDrive/MediScan/figures/day10_gradcam_sample_12_pituitary_pred_pituitary.png

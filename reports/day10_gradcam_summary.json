@@ -1,0 +1,38 @@
+{
+    "day": 10,
+    "task": "Grad-CAM Explainability",
+    "total_samples": 12,
+    "correct_samples": 11,
+    "incorrect_samples": 1,
+    "sample_accuracy": 0.9166666666666666,
+    "average_confidence": 0.8952436496814092,
+    "class_summary": {
+        "glioma": {
+            "samples": 3,
+            "correct": 3,
+            "incorrect": 0,
+            "average_confidence": 0.98971559604009
+        },
+        "meningioma": {
+            "samples": 3,
+            "correct": 3,
+            "incorrect": 0,
+            "average_confidence": 0.7833996613820394
+        },
+        "notumor": {
+            "samples": 3,
+            "correct": 3,
+            "incorrect": 0,
+            "average_confidence": 0.9685272971789042
+        },
+        "pituitary": {
+            "samples": 3,
+            "correct": 2,
+            "incorrect": 1,
+            "average_confidence": 0.8393320441246033
+        }
+    },
+    "target_layer": "model.features[-1]",
+    "num_classes": 4,
+    "input_resolution": "224x224"
+}
