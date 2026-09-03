@@ -948,3 +948,51 @@ Day 8 improved validation accuracy by **2.87 percentage points**.
 
 The test set remained untouched during hyperparameter tuning and is
 reserved for Day 9 evaluation.
+
+## Day 9 — Model Evaluation
+
+The optimized EfficientNet-B0 model from Day 8 was evaluated on the held-out test set of 1,080 brain MRI images.
+
+### Test Performance
+
+| Metric | Score |
+|---|---:|
+| Accuracy | 91.20% |
+| Weighted Precision | 91.32% |
+| Weighted Recall | 91.20% |
+| Weighted F1-score | 91.16% |
+
+### Per-Class Performance
+
+| Class | Precision | Recall | F1-score |
+|---|---:|---:|---:|
+| Glioma | 94.58% | 84.07% | 89.02% |
+| Meningioma | 84.23% | 87.04% | 85.61% |
+| No Tumor | 93.01% | 98.52% | 95.68% |
+| Pituitary | 93.45% | 95.19% | 94.31% |
+
+### ROC-AUC
+
+| Class | ROC-AUC |
+|---|---:|
+| Glioma | 0.9776 |
+| Meningioma | 0.9669 |
+| No Tumor | 0.9970 |
+| Pituitary | 0.9921 |
+
+### Key Observations
+
+- The model achieved **91.20% test accuracy** on unseen MRI images.
+- No Tumor achieved the highest F1-score (**95.68%**) and ROC-AUC (**0.9970**).
+- Meningioma was the most challenging class with an F1-score of **85.61%**.
+- All four classes achieved ROC-AUC above **0.96**, indicating strong class separation.
+- The test set was kept untouched during hyperparameter tuning.
+
+### Day 9 Artifacts
+
+- `reports/day9_classification_report.csv`
+- `reports/day9_roc_auc.csv`
+- `reports/day9_evaluation_metrics.json`
+- `reports/day9_summary.md`
+- `figures/day9_confusion_matrix.png`
+- `figures/day9_roc_curves.png`
