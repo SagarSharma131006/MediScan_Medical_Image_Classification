@@ -1,1060 +1,544 @@
-# 🧠 MediScan — Medical Image Classification
+🧠 MediScan — Medical Image Classification
 
-> **Deep Learning-based Brain MRI Classification using PyTorch and EfficientNet-B0**
+Deep Learning-based Brain MRI Classification using PyTorch and EfficientNet-B0
 
-MediScan is a deep learning project focused on classifying brain MRI images into four categories:
+MediScan is an end-to-end deep learning project for classifying brain MRI images into four categories:
 
-- 🧠 **Glioma**
-- 🧠 **Meningioma**
-- 🧠 **Pituitary Tumor**
-- ✅ **No Tumor**
+🧠 Glioma
 
-The project follows a structured **15-day deep learning workflow**, covering:
+🧠 Meningioma
 
-**Dataset Exploration → Preprocessing → Data Augmentation → Data Loading → Transfer Learning → Model Training → Evaluation → Explainability → Deployment**
+🧠 Pituitary Tumor
 
-The implementation is being developed using **Python, PyTorch, Torchvision, Google Colab, CUDA, and EfficientNet-B0**.
+✅ No Tumor
 
----
+The project follows a structured 15-day workflow covering data preparation, augmentation, transfer learning, training, evaluation, explainability, and deployment.
 
-# 📌 Project Overview
+🎯 Project Overview
 
-Medical image classification can assist in the preliminary analysis of MRI scans by automatically identifying patterns associated with different tumor categories.
+Goal: Build and evaluate a four-class brain MRI image classification system using transfer learning.
 
-MediScan aims to build a complete end-to-end image classification pipeline that can:
+Core pipeline:
 
-1. Load and analyze brain MRI images.
-2. Prepare and preprocess the dataset.
-3. Apply controlled image augmentation.
-4. Efficiently load images using PyTorch DataLoaders.
-5. Train a transfer-learning based CNN.
-6. Evaluate classification performance.
-7. Generate explainable predictions using Grad-CAM.
-8. Deploy the trained model through a web application.
+MRI Images → Preprocessing → 70/15/15 Split → Augmentation → PyTorch DataLoader → EfficientNet-B0 → Training → Evaluation → Grad-CAM → Deployment
 
----
+Current Model
 
-# 🎯 Project Goals
+Architecture: EfficientNet-B0
 
-The main goals of MediScan are:
+Pretrained weights: ImageNet
 
-- Build a complete medical image classification pipeline.
-- Understand and prepare a real-world MRI image dataset.
-- Implement proper train-validation-test splitting.
-- Reduce overfitting using data augmentation.
-- Use transfer learning with a pretrained CNN.
-- Train an efficient four-class classifier.
-- Evaluate the model using multiple performance metrics.
-- Understand model decisions using Grad-CAM.
-- Deploy the final model as an interactive application.
+Input: 224 × 224 RGB
 
----
+Classes: 4
 
-# 🗂️ Dataset
+Framework: PyTorch
 
-The project uses a Brain MRI image dataset containing four classes:
+GPU: CUDA / NVIDIA Tesla T4
 
-| Class | Description |
-|---|---|
-| `glioma` | MRI images showing glioma tumor |
-| `meningioma` | MRI images showing meningioma tumor |
-| `pituitary` | MRI images showing pituitary tumor |
-| `notumor` | MRI images showing no tumor |
+Dataset: 7,200 brain MRI images
 
-The original dataset contains:
+🗂️ Dataset
 
-| Detail | Value |
-|---|---:|
-| Total Images | 7,200 |
-| Number of Classes | 4 |
-| Original Training Images | 5,600 |
-| Original Testing Images | 1,600 |
+Class
 
-> **Dataset Note:** The dataset used in this project was selected independently from the workflow specification. The original dataset structure was preserved initially and then reorganized into the required train-validation-test pipeline.
+Images
 
----
+Glioma
 
-# 🏗️ Project Architecture
+1,800
 
-The overall MediScan pipeline is:
+Meningioma
 
-**MRI Images**
+1,800
 
-↓  
+No Tumor
 
-**Dataset Exploration**
+1,800
 
-↓
+Pituitary
 
-**Preprocessing**
+1,800
 
-↓
+Total
 
-**70/15/15 Dataset Split**
+7,200
 
-↓
+The dataset was reorganized into a stratified 70/15/15 split:
 
-**Data Augmentation**
+Split
 
-↓
+Images
 
-**Custom PyTorch Dataset**
+Training
 
-↓
+5,040
 
-**PyTorch DataLoader**
+Validation
 
-↓
+1,080
 
-**EfficientNet-B0**
+Testing
 
-↓
+1,080
 
-**Four-Class Classifier**
+Class Mapping
 
-↓
+glioma      → 0
+meningioma  → 1
+notumor     → 2
+pituitary   → 3
 
-**Model Training**
+The test set is kept separate and was not used during hyperparameter tuning.
 
-↓
+📅 15-Day Development Roadmap
 
-**Model Evaluation**
+Day
 
-↓
+Task
 
-**Grad-CAM Explainability**
+Status
 
-↓
+1
 
-**Streamlit Deployment**
+Project Setup & Dataset Exploration
 
----
+✅ Completed
 
-## 📅 15-Day Development Roadmap
+2
 
-| Day | Task | Status |
-|---|---|---|
-| Day 1 | Project Setup & Dataset Exploration | ✅ Completed |
-| Day 2 | Data Preprocessing & Dataset Split | ✅ Completed |
-| Day 3 | Data Augmentation | ✅ Completed |
-| Day 4 | Custom Dataset & DataLoader | ✅ Completed |
-| Day 5 | Transfer Learning & Base Model | ✅ Completed |
-| Day 6 | Training Loop Setup | ✅ Completed |
-| Day 7 | Model Training & Performance Curves | ✅ Completed |
-| Day 8 | Hyperparameter Tuning | ✅ Completed |
-| Day 9 | Model Evaluation | ✅ Completed |
-| Day 10 | Grad-CAM Explainability | ✅ Completed |
-| Day 11 | Second Architecture Comparison | 🔄 Upcoming |
-| Day 12 | Streamlit/Flask Web Application | 🔄 Upcoming |
-| Day 13 | Experiment Tracking | 🔄 Upcoming |
-| Day 14 | Error & Edge-Case Analysis | 🔄 Upcoming |
-| Day 15 | Deployment, Model Card & Presentation | 🔄 Upcoming |
+Data Preprocessing & Dataset Split
 
----
+✅ Completed
 
-# 📅 Day 1 — Project Setup and Dataset Exploration
+3
 
-## 🎯 Objective
+Data Augmentation
 
-The goal of Day 1 was to set up the project environment, connect Google Colab with the GitHub repository, load the brain MRI dataset, and perform initial dataset exploration.
+✅ Completed
 
-## ✅ Work Completed
+4
 
-- Configured the Google Colab environment.
-- Connected Google Drive with Colab.
-- Cloned the GitHub repository.
-- Loaded the Brain MRI dataset.
-- Extracted and verified the dataset.
-- Verified the dataset folder structure.
-- Created a dataset manifest.
-- Analyzed class distribution.
-- Visualized sample MRI images.
-- Saved Day 1 outputs and documentation.
+Custom Dataset & DataLoader
 
-## 📊 Original Dataset Overview
+✅ Completed
 
-| Detail | Value |
-|---|---:|
-| Dataset Type | Brain MRI Images |
-| Total Images | 7,200 |
-| Number of Classes | 4 |
-| Training Images | 5,600 |
-| Testing Images | 1,600 |
+5
 
-## 🧠 Classes
+Transfer Learning & Base Model
 
-| Class Name | Meaning |
-|---|---|
-| `glioma` | MRI images showing glioma tumor |
-| `meningioma` | MRI images showing meningioma tumor |
-| `pituitary` | MRI images showing pituitary tumor |
-| `notumor` | MRI images with no tumor |
+✅ Completed
 
-## 🔍 Key Insight
+6
 
-The original dataset is balanced across the four classes.
+Training Loop Setup
 
-Each class contains an equal number of images in the original training and testing sets. This provides a balanced starting point for classification and helps reduce class imbalance during model development.
+✅ Completed
 
-## 📁 Day 1 Outputs
+7
 
-| Output | Purpose |
-|---|---|
-| `data/processed/day1_dataset_manifest.csv` | Stores image paths, labels, and original split information |
-| `figures/day1_sample_images.png` | Sample MRI images from the dataset |
-| `reports/day1_summary.md` | Day 1 documentation |
+Model Training & Performance Curves
 
-## ✅ Day 1 Status
+✅ Completed
 
-| Task | Status |
-|---|---|
-| Colab setup | ✅ Done |
-| GitHub repository setup | ✅ Done |
-| Dataset extraction | ✅ Done |
-| 7,200 images verified | ✅ Done |
-| Four classes verified | ✅ Done |
-| Sample images visualized | ✅ Done |
-| Dataset manifest created | ✅ Done |
-| Day 1 summary saved | ✅ Done |
+8
 
----
+Hyperparameter Tuning
 
-# 📅 Day 2 — Data Preprocessing and Dataset Split
+✅ Completed
 
-## 🎯 Objective
+9
 
-The goal of Day 2 was to analyze the image data, prepare the dataset for deep learning, and create a stratified **70/15/15 train-validation-test split**.
+Model Evaluation
 
-## ✅ Work Completed
+✅ Completed
 
-- Analyzed image dimensions.
-- Analyzed image color modes.
-- Prepared images for resizing.
-- Converted images to RGB during preprocessing.
-- Created a stratified 70/15/15 split.
-- Preserved class balance across all splits.
-- Created a class-to-index mapping.
-- Saved train, validation, and test CSV files.
-- Verified the dataset split.
+10
 
-## 📊 Dataset Split
+Grad-CAM Explainability
 
-| Split | Images |
-|---|---:|
-| Training | 5,040 |
-| Validation | 1,080 |
-| Testing | 1,080 |
-| **Total** | **7,200** |
+✅ Completed
 
-## 🔢 Class Mapping
+11
 
-| Class | Index |
-|---|---:|
-| `glioma` | 0 |
-| `meningioma` | 1 |
-| `notumor` | 2 |
-| `pituitary` | 3 |
+Second Architecture Comparison
 
-## 📁 Day 2 Outputs
+🔄 Upcoming
 
-- `data/processed/day2_train_val_test_split.csv`
-- `data/processed/train.csv`
-- `data/processed/val.csv`
-- `data/processed/test.csv`
-- `data/processed/class_to_idx.json`
-- `figures/day2_split_distribution.png`
-- `reports/day2_summary.md`
+12
 
-## ⚠️ Preprocessing Note
+Streamlit/Flask Web Application
 
-The current pipeline uses the image normalization required for the pretrained EfficientNet-B0 model during the later training stages.
+🔄 Upcoming
 
-The initial Day 2 preprocessing stage did not apply normalization as a permanent dataset transformation. Normalization is applied in the PyTorch transformation pipeline used by the model.
+13
 
----
+Experiment Tracking
 
-# 📅 Day 3 — Data Augmentation
+🔄 Upcoming
 
-## 🎯 Objective
+14
 
-The goal of Day 3 was to implement controlled data augmentation techniques to improve the model's ability to generalize to variations in MRI images.
+Error & Edge-Case Analysis
 
-## ✅ Augmentation Techniques
+🔄 Upcoming
 
-The training pipeline includes:
+15
 
-- Random Horizontal Flip
-- Random Rotation
-- Color Jitter
-- Random Affine Transformation
+Deployment, Model Card & Presentation
 
-These transformations are applied only to the training data.
+🔄 Upcoming
 
-Validation and testing images use deterministic preprocessing without random augmentation.
+📊 Completed Work
 
-## 🔄 Augmentation Pipeline
+Day 1–6 — Foundation
 
-    Resize
-       ↓
-    Random Horizontal Flip
-       ↓
-    Random Rotation
-       ↓
-    Color Jitter
-       ↓
-    Random Affine Transformation
-       ↓
-    ToTensor
-       ↓
-    Normalize
+Completed the complete data and training pipeline foundation:
 
-## 🧪 Training Transform
+Dataset exploration and class verification
 
-The training transformation uses:
+Stratified 70/15/15 train-validation-test split
 
-- Resize to `224 × 224`
-- Random Horizontal Flip
-- Random Rotation up to ±15°
-- Color Jitter
-- Random Affine transformation
-- Conversion to tensor
-- ImageNet normalization
+Image preprocessing and controlled augmentation
 
-## 🧪 Evaluation Transform
+Custom PyTorch Dataset
 
-Validation and testing use:
+Train/validation/test DataLoaders
 
-- Resize to `224 × 224`
-- Conversion to tensor
-- ImageNet normalization
+EfficientNet-B0 transfer-learning setup
 
-No random augmentation is applied during validation or testing.
+ImageNet pretrained weights
 
-## 📁 Day 3 Outputs
+Training loss, optimizer, and scheduler configuration
 
-| Output | Purpose |
-|---|---|
-| `figures/day3_augmentation_comparison.png` | Original vs augmented image comparison |
-| `figures/day3_combined_augmentation.png` | Visualization of augmentation effects |
-| `reports/day3_summary.md` | Day 3 documentation |
+CUDA/GPU verification
 
-## ✅ Day 3 Status
+DataLoader
 
-| Task | Status |
-|---|---|
-| Training augmentation implemented | ✅ Done |
-| Evaluation transform implemented | ✅ Done |
-| Augmented samples visualized | ✅ Done |
-| Augmentation pipeline verified | ✅ Done |
-| Day 3 summary saved | ✅ Done |
+Batch Size       : 32
+Workers          : 2
+Prefetch Factor  : 2
+Pin Memory       : True
+Input Shape      : [32, 3, 224, 224]
 
----
+Day 7 — Model Training
 
-# 📅 Day 4 — Custom Dataset and DataLoader
+The baseline EfficientNet-B0 model was trained for 10 epochs.
 
-## 🎯 Objective
+Metric
 
-The goal of Day 4 was to implement a custom PyTorch Dataset and DataLoaders for efficient batch-wise loading of MRI images.
+Result
 
-## ✅ Work Completed
+Best Validation Accuracy
 
-- Implemented a custom PyTorch Dataset.
-- Loaded training images.
-- Loaded validation images.
-- Loaded testing images.
-- Converted images to RGB.
-- Applied training transformations.
-- Applied evaluation transformations.
-- Converted class names into integer class indices.
-- Created PyTorch DataLoaders.
-- Configured batch size.
-- Configured multiple workers.
-- Enabled pinned memory.
-- Enabled DataLoader prefetching.
-- Verified DataLoader iteration.
+87.22%
 
-## ⚙️ DataLoader Configuration
+Best Epoch
 
-| Parameter | Value |
-|---|---:|
-| Batch Size | 32 |
-| Number of Workers | 2 |
-| Prefetch Factor | 2 |
-| Pin Memory | True |
-| Training Shuffle | True |
+6
 
-## 📊 Dataset Sizes
+Best Validation Loss
 
-| Dataset | Images |
-|---|---:|
-| Training | 5,040 |
-| Validation | 1,080 |
-| Testing | 1,080 |
+0.3943
 
-## 🧪 Batch Verification
+Training setup: Adam + CrossEntropyLoss + StepLR.
 
-    Images shape : torch.Size([32, 3, 224, 224])
-    Labels shape : torch.Size([32])
-    Images dtype : torch.float32
-    Labels dtype : torch.int64
+Artifacts include training history, loss/accuracy curves, and the best Day 7 model checkpoint.
 
-## 🔍 Input Configuration
+Day 8 — Hyperparameter Tuning
 
-| Parameter | Value |
-|---|---:|
-| Batch Size | 32 |
-| Channels | 3 |
-| Image Height | 224 |
-| Image Width | 224 |
+Four hyperparameters were evaluated:
 
-## ✅ Day 4 Verification
+Learning Rate
 
-The complete training DataLoader was successfully iterated through all **158 batches**.
+Batch Size
 
-**Day 4 DataLoader Verification: PASSED**
+Dropout
 
-## 📁 Day 4 Output
+Augmentation Strength
 
-- `notebooks/Day_04_Custom_Dataset_and_DataLoader.ipynb`
-- `reports/day4_summary.md`
+Best Configuration
 
----
+Parameter
 
-# 📅 Day 5 — Base Model Setup
+Value
 
-## 🎯 Objective
+Learning Rate
 
-The goal of Day 5 was to configure a pretrained CNN using transfer learning and modify its classifier for four-class brain MRI classification.
+0.002
 
-## 🧠 Model
+Batch Size
 
-The project uses **EfficientNet-B0** with pretrained ImageNet weights.
+32
 
-The pretrained convolutional feature extraction layers are frozen, while a new classifier head is trained for the four MRI classes.
+Dropout
 
-## ✅ Work Completed
+0.1
 
-- Loaded pretrained EfficientNet-B0.
-- Loaded ImageNet pretrained weights.
-- Inspected the original classifier.
-- Replaced the original classifier.
-- Configured the classifier for four classes.
-- Frozen the feature extraction layers.
-- Moved the model to CUDA.
-- Verified trainable parameters.
-- Verified frozen parameters.
+Augmentation
 
-## ⚙️ Model Configuration
+Weak
 
-| Parameter | Value |
-|---|---|
-| Architecture | EfficientNet-B0 |
-| Pretrained | Yes |
-| Pretrained Weights | ImageNet |
-| Input Size | 224 × 224 |
-| Number of Classes | 4 |
-| Device | CUDA |
-| Dropout | 0.2 |
-| Classifier | Linear(1280 → 4) |
+Epochs
 
-## 🏷️ Class Mapping
+10
 
-| Class | Index |
-|---|---:|
-| `glioma` | 0 |
-| `meningioma` | 1 |
-| `notumor` | 2 |
-| `pituitary` | 3 |
+Optimizer
 
-## 📊 Parameter Verification
+Adam
 
-| Parameter | Count |
-|---|---:|
-| Total Parameters | 4,012,672 |
-| Trainable Parameters | 5,124 |
-| Frozen Parameters | 4,007,548 |
+Result
 
-## 🧩 Classifier Architecture
+Best Validation Accuracy: 90.09%
 
-    EfficientNet-B0
-          ↓
-    Feature Extractor
-          ↓
-    Global Pooling
-          ↓
-    Dropout (0.2)
-          ↓
-    Linear (1280 → 4)
-          ↓
-    Class Predictions
+Compared with Day 7 (87.22%), validation accuracy improved by 2.87 percentage points.
 
-## ✅ Day 5 Status
+The test set remained untouched during tuning.
 
-| Task | Status |
-|---|---|
-| EfficientNet-B0 loaded | ✅ Done |
-| ImageNet weights loaded | ✅ Done |
-| Classifier replaced | ✅ Done |
-| Feature layers frozen | ✅ Done |
-| CUDA configured | ✅ Done |
-| Parameter verification | ✅ Done |
-| Base model verification | ✅ Done |
+Day 9 — Model Evaluation
 
----
+The optimized Day 8 model was evaluated on the held-out test set of 1,080 images.
 
-# 📅 Day 6 — Training Loop Setup
+Overall Performance
 
-## 🎯 Objective
+Metric
 
-The goal of Day 6 was to configure and verify the components required for training the EfficientNet-B0 model.
+Score
 
-## ✅ Work Completed
+Accuracy
 
-- Restored the pretrained EfficientNet-B0 model.
-- Restored the dataset pipeline.
-- Restored training, validation, and testing datasets.
-- Restored PyTorch DataLoaders.
-- Configured CrossEntropyLoss.
-- Configured Adam optimizer.
-- Configured StepLR scheduler.
-- Verified the model forward pass.
-- Verified output and label compatibility.
-- Successfully calculated the training loss.
+91.20%
 
-## ⚙️ Training Configuration
+Weighted Precision
 
-| Detail | Value |
-|---|---|
-| Model | EfficientNet-B0 |
-| Pretrained | Yes |
-| Number of Classes | 4 |
-| Device | CUDA |
-| Batch Size | 32 |
-| Loss Function | CrossEntropyLoss |
-| Optimizer | Adam |
-| Learning Rate | 0.001 |
-| Scheduler | StepLR |
-| Step Size | 5 |
-| Gamma | 0.1 |
+91.32%
 
-## 📊 Dataset Configuration
+Weighted Recall
 
-| Dataset | Images |
-|---|---:|
-| Training | 5,040 |
-| Validation | 1,080 |
-| Testing | 1,080 |
+91.20%
 
-## 🔬 Forward Pass Verification
+Weighted F1-score
 
-    Input shape  : torch.Size([32, 3, 224, 224])
-    Output shape : torch.Size([32, 4])
-    Labels shape : torch.Size([32])
-    Labels dtype : torch.int64
-    Loss         : 1.47794771194458
-
-The model successfully accepts a batch of 32 RGB MRI images and produces four output logits corresponding to the four target classes.
-
-## 🧩 Training Pipeline
-
-    MRI Batch
-        ↓
-    EfficientNet-B0
-        ↓
-    4-Class Logits
-        ↓
-    CrossEntropyLoss
-        ↓
-    Adam Optimizer
-        ↓
-    StepLR Scheduler
-
-## ✅ Day 6 Verification
-
-    ========================================
-    DAY 6 TRAINING LOOP VERIFICATION
-    ========================================
-
-    Model              : EfficientNet-B0
-    Device             : cuda
-    Loss Function      : CrossEntropyLoss
-    Optimizer          : Adam
-    Learning Rate      : 0.001
-    Scheduler           : StepLR
-    Scheduler Step Size: 5
-    Scheduler Gamma     : 0.1
-
-    Batch verification:
-    Input shape        : torch.Size([32, 3, 224, 224])
-    Output shape       : torch.Size([32, 4])
-    Labels shape       : torch.Size([32])
-    Labels dtype       : torch.int64
-    Loss               : 1.47794771194458
-
-    ========================================
-    DAY 6 VERIFICATION PASSED
-    ========================================
-
-## 📁 Day 6 Output
-
-- `notebooks/Day_06_Training_Loop.ipynb`
-- `reports/day6_summary.md`
-
----
-
-# 📊 Current Project Status
-
-| Component | Status |
-|---|---|
-| Dataset setup | ✅ Completed |
-| Dataset exploration | ✅ Completed |
-| Train/Validation/Test split | ✅ Completed |
-| Data augmentation | ✅ Completed |
-| Custom Dataset | ✅ Completed |
-| DataLoader | ✅ Completed |
-| EfficientNet-B0 | ✅ Completed |
-| Transfer learning setup | ✅ Completed |
-| Training components | ✅ Completed |
-| Actual model training | 🔄 Next |
-| Model evaluation | 🔄 Upcoming |
-| Grad-CAM | 🔄 Upcoming |
-| Deployment | 🔄 Upcoming |
-
----
-
-# 🗃️ Repository Structure
-
-    MediScan_Medical_Image_Classification/
-    │
-    ├── app/
-    │
-    ├── data/
-    │   └── processed/
-    │       ├── class_to_idx.json
-    │       ├── day1_dataset_manifest.csv
-    │       ├── day2_image_info.csv
-    │       ├── day2_train_val_test_split.csv
-    │       ├── train.csv
-    │       ├── val.csv
-    │       └── test.csv
-    │
-    ├── figures/
-    │   ├── day1_sample_images.png
-    │   ├── day2_split_distribution.png
-    │   ├── day3_augmentation_comparison.png
-    │   └── day3_combined_augmentation.png
-    │
-    ├── models/
-    │
-    ├── notebooks/
-    │   ├── Day_01_Project_Setup_and_Exploration.ipynb
-    │   ├── Day_02_Preprocessing_and_Split.ipynb
-    │   ├── Day_03_Data_Augmentation.ipynb
-    │   ├── Day_04_Custom_Dataset_and_DataLoader.ipynb
-    │   ├── Day_05_Base_Model_Setup.ipynb
-    │   └── Day_06_Training_Loop.ipynb
-    │
-    ├── reports/
-    │   ├── day1_summary.md
-    │   ├── day2_summary.md
-    │   ├── day3_summary.md
-    │   ├── day4_summary.md
-    │   ├── day5_summary.md
-    │   └── day6_summary.md
-    │
-    ├── src/
-    │
-    ├── .gitignore
-    ├── README.md
-    └── requirements.txt
+91.16%
 
----
+Per-Class Performance
 
-# 🛠️ Technology Stack
+Class
 
-| Technology | Purpose |
-|---|---|
-| Python | Programming Language |
-| PyTorch | Deep Learning Framework |
-| Torchvision | Computer Vision & Model Utilities |
-| EfficientNet-B0 | Transfer Learning Model |
-| CUDA | GPU Acceleration |
-| Google Colab | Development Environment |
-| NumPy | Numerical Computing |
-| Pandas | Data Processing |
-| Matplotlib | Visualization |
-| Seaborn | Data Visualization |
-| Scikit-learn | Evaluation & Data Splitting |
-| Pillow | Image Processing |
-| Grad-CAM | Model Explainability |
-| Streamlit | Web Application |
-| Git & GitHub | Version Control |
-
----
-
-# 🚫 Dataset and Large Files
+Precision
 
-The original dataset is not uploaded to GitHub because of its large size.
+Recall
 
-The following files/directories are intentionally excluded:
+F1
 
-- `archive.zip`
-- `data/raw/`
-- Trained model files such as `.pt` and `.pth`
+Glioma
 
-The dataset is stored separately in Google Drive and accessed through Google Colab during development.
+94.58%
 
-The repository contains the processed metadata, notebooks, figures, reports, source code, and project documentation required to reproduce the workflow.
+84.07%
 
----
+89.02%
 
-# 🔐 Reproducibility
+Meningioma
 
-The project is being developed using a day-by-day workflow.
+84.23%
 
-Each completed day contains:
+87.04%
 
-- A dedicated notebook.
-- Verification outputs.
-- A project report.
-- Relevant generated figures or metadata.
+85.61%
 
-This structure makes it easier to track the development process and verify every stage before moving to the next stage.
+No Tumor
 
----
+93.01%
 
-# 🚀 Upcoming Work
+98.52%
 
-The next stages of MediScan will focus on:
+95.68%
 
-### Day 7
-Train the EfficientNet-B0 model.
+Pituitary
 
-### Day 8
-Monitor training and validation performance.
+93.45%
 
-### Day 9
-Evaluate the trained model.
+95.19%
 
-### Day 10
-Generate confusion matrix and classification report.
+94.31%
 
-### Day 11
-Fine-tune the model and improve performance.
+ROC-AUC
 
-### Day 12
-Implement Grad-CAM for model explainability.
+Class
 
-### Day 13
-Save the final model and build inference functionality.
+ROC-AUC
 
-### Day 14
-Develop the Streamlit web application.
+Glioma
 
-### Day 15
-Integrate the complete pipeline and finalize documentation.
+0.9776
 
----
+Meningioma
 
-# 🎯 Final Project Goal
+0.9669
 
-The final goal of MediScan is to demonstrate a complete end-to-end deep learning workflow for brain MRI image classification:
+No Tumor
 
-    Data
-      ↓
-    Exploration
-      ↓
-    Preprocessing
-      ↓
-    Dataset Split
-      ↓
-    Augmentation
-      ↓
-    DataLoader
-      ↓
-    Transfer Learning
-      ↓
-    Model Training
-      ↓
-    Evaluation
-      ↓
-    Explainability
-      ↓
-    Deployment
-      ↓
-    ⭐ MediScan
+0.9970
 
----
+Pituitary
 
-# 🧠 From MRI Images to Explainable Deep Learning
+0.9921
 
-MediScan is designed as a structured deep learning project demonstrating the complete journey from raw medical images to an explainable image classification system.
+Key observation: Meningioma was the most challenging class by F1-score, while No Tumor achieved the strongest overall class performance.
 
-The project combines:
+Day 10 — Grad-CAM Explainability
 
-**Medical Imaging + Computer Vision + Transfer Learning + Model Evaluation + Explainable AI + Deployment**
+Grad-CAM was implemented using pytorch-grad-cam with the final EfficientNet-B0 feature block as the target layer.
 
----
+Explainability Results
 
-# ⚠️ Disclaimer
+12 Grad-CAM samples
 
-MediScan is an educational and research-oriented deep learning project.
+3 samples per class
 
-It is **not a medical diagnostic system** and should not be used as a substitute for professional medical diagnosis, clinical evaluation, or medical advice.
+11 correct predictions
 
----
+1 incorrect prediction
 
-# 👨‍💻 Project Development
+Sample accuracy: 91.67%
 
-**Project:** MediScan — Medical Image Classification
+Average confidence: 89.52%
 
-**Focus:** Brain MRI Image Classification
+The selected incorrect example was:
 
-**Framework:** PyTorch
+True Class       : Pituitary
+Predicted Class  : No Tumor
+Confidence       : 62.26%
 
-**Model:** EfficientNet-B0
+The incorrect example was retained for qualitative inspection of the model's attention.
 
-**Classes:** 4
+Generated Artifacts
 
-**Workflow:** 15-Day Deep Learning Project
-
-**Development Environment:** Google Colab + CUDA
-
----
-
-## 📅 Day 7 — Model Training
-
-### 🎯 Objective
-
-Train the pretrained EfficientNet-B0 model and monitor training and validation performance over multiple epochs.
-
-### 🔧 Training Configuration
-
-- **Architecture:** EfficientNet-B0
-- **Pretrained Weights:** ImageNet
-- **Number of Classes:** 4
-- **Trainable Parameters:** 5,124
-- **Frozen Parameters:** 4,007,548
-- **Training Samples:** 5,040
-- **Validation Samples:** 1,080
-- **Batch Size:** 32
-- **Epochs:** 10
-- **Loss Function:** CrossEntropyLoss
-- **Optimizer:** Adam
-- **Initial Learning Rate:** 0.001
-- **Scheduler:** StepLR
-- **Step Size:** 5
-- **Gamma:** 0.1
-- **Device:** CUDA / NVIDIA Tesla T4
-
-### 📊 Training Results
-
-| Metric | Result |
-|---|---:|
-| Best Validation Accuracy | **87.22%** |
-| Best Epoch | **6** |
-| Final Training Accuracy | **85.73%** |
-| Final Validation Accuracy | **86.67%** |
-| Best Validation Loss | **0.3943** |
-
-### 📈 Learning Rate Schedule
-
-- Epochs 1–5: `0.001`
-- Epochs 6–10: `0.0001`
-
-The learning rate was reduced by the StepLR scheduler after epoch 5.
-
-### 🔍 Observations
-
-- Training loss decreased from **0.6854** to **0.3948**.
-- Validation loss decreased overall from **0.5241** to **0.4072**.
-- Validation accuracy improved from **82.96%** to a maximum of **87.22%**.
-- The project target of **>85% accuracy** was achieved.
-- Training and validation curves were generated to monitor model performance.
-- The test dataset was **not used during Day 7 training**.
-
-### 📁 Day 7 Artifacts
-
-```text
-figures/
-├── day7_loss_curve.png
-└── day7_accuracy_curve.png
-
-models/
-└── efficientnet_b0_best_day7.pth
-
-reports/
-├── day7_summary.md
-├── day7_training_history.csv
-└── day7_training_history.json
-```
-## Day 8 — Hyperparameter Tuning
-
-Day 8 focused on improving the EfficientNet-B0 baseline through
-systematic hyperparameter tuning.
-
-### Hyperparameters Tuned
-
-- Learning Rate
-- Batch Size
-- Dropout Rate
-- Data Augmentation Strength
-
-### Tuning Results
-
-| Hyperparameter | Best Configuration | Best Validation Accuracy |
-|---|---:|---:|
-| Learning Rate | 0.002 | 87.69% |
-| Dropout | 0.1 | 87.69% |
-| Batch Size | 32 | 87.69% |
-| Augmentation | Weak | 89.44% |
-
-> Dropout 0.1 and 0.2 produced the same best validation accuracy
-> during tuning. Dropout 0.1 was selected for the final configuration.
-
-### Final Configuration
-
-- Architecture: EfficientNet-B0
-- Learning Rate: 0.002
-- Batch Size: 32
-- Dropout: 0.1
-- Augmentation: Weak
-- Epochs: 10
-- Loss: CrossEntropyLoss
-- Optimizer: Adam
-- Scheduler: StepLR
-- Device: CUDA
-
-### Final Result
-
-The final 10-epoch verification achieved:
-
-- **Best Validation Accuracy: 90.09%**
-- **Best Epoch: 9**
-- **Best Validation Loss: 0.2833**
-
-Compared with Day 7's best validation accuracy of **87.22%**,
-Day 8 improved validation accuracy by **2.87 percentage points**.
-
-### Day 8 Artifacts
-
-- `notebooks/Day_08_Hyperparameter_Tuning.ipynb`
-- `reports/day8_final_training_history.csv`
-- `reports/day8_hyperparameter_tuning_results.csv`
-- `reports/day8_final_configuration.json`
-- `reports/day8_summary.md`
-- `figures/day8_final_loss_curve.png`
-- `figures/day8_final_accuracy_curve.png`
-
-The test set remained untouched during hyperparameter tuning and is
-reserved for Day 9 evaluation.
-
-## Day 9 — Model Evaluation
-
-The optimized EfficientNet-B0 model from Day 8 was evaluated on the held-out test set of 1,080 brain MRI images.
-
-### Test Performance
-
-| Metric | Score |
-|---|---:|
-| Accuracy | 91.20% |
-| Weighted Precision | 91.32% |
-| Weighted Recall | 91.20% |
-| Weighted F1-score | 91.16% |
-
-### Per-Class Performance
-
-| Class | Precision | Recall | F1-score |
-|---|---:|---:|---:|
-| Glioma | 94.58% | 84.07% | 89.02% |
-| Meningioma | 84.23% | 87.04% | 85.61% |
-| No Tumor | 93.01% | 98.52% | 95.68% |
-| Pituitary | 93.45% | 95.19% | 94.31% |
-
-### ROC-AUC
-
-| Class | ROC-AUC |
-|---|---:|
-| Glioma | 0.9776 |
-| Meningioma | 0.9669 |
-| No Tumor | 0.9970 |
-| Pituitary | 0.9921 |
-
-### Key Observations
-
-- The model achieved **91.20% test accuracy** on unseen MRI images.
-- No Tumor achieved the highest F1-score (**95.68%**) and ROC-AUC (**0.9970**).
-- Meningioma was the most challenging class with an F1-score of **85.61%**.
-- All four classes achieved ROC-AUC above **0.96**, indicating strong class separation.
-- The test set was kept untouched during hyperparameter tuning.
-
-### Day 9 Artifacts
-
-- `reports/day9_classification_report.csv`
-- `reports/day9_roc_auc.csv`
-- `reports/day9_evaluation_metrics.json`
-- `reports/day9_summary.md`
-- `figures/day9_confusion_matrix.png`
-- `figures/day9_roc_curves.png`
-
-
-
-
-## 📅 Day 10 — Grad-CAM Explainability
-
-### 🎯 Objective
-
-The objective of Day 10 was to implement **Grad-CAM (Gradient-weighted Class Activation Mapping)** for the EfficientNet-B0 model and visualize the image regions that contributed to the model's predictions.
-
-This provides an explainability layer for the brain MRI classification model.
-
-### 🧠 Grad-CAM Implementation
-
-Grad-CAM was implemented using the `pytorch-grad-cam` library.
-
-**Model:** EfficientNet-B0  
-**Input Size:** 224 × 224  
-**Number of Classes:** 4  
-**Target Layer:** Final feature block of EfficientNet-B0  
-**Target Class:** Predicted class
-
-The generated Grad-CAM heatmaps were overlaid on the MRI images to visualize the regions influencing the model's prediction.
-
-### 🔬 Explainability Samples
-
-A total of **12 Grad-CAM samples** were generated:
-
-| Class | Samples |
-|---|---:|
-| Glioma | 3 |
-| Meningioma | 3 |
-| No Tumor | 3 |
-| Pituitary | 3 |
-| **Total** | **12** |
-
-The samples were selected from the test dataset and include both correct and incorrect predictions.
-
-### 📊 Grad-CAM Sample Results
-
-- Total samples: **12**
-- Correct predictions: **11**
-- Incorrect predictions: **1**
-- Sample accuracy: **91.67%**
-- Average confidence: **89.52%**
-
-One selected sample was misclassified:
-
-- **True class:** Pituitary
-- **Predicted class:** No Tumor
-- **Confidence:** 62.26%
-
-This incorrect example was retained because it provides a useful case for inspecting the model's attention through Grad-CAM.
-
-### 🖼️ Generated Visualizations
-
-The following explainability artifacts were generated:
-
-```text
 figures/
 ├── day10_gradcam_sample_01...12.png
 └── day10_gradcam_contact_sheet.png
+
+reports/
+├── day10_gradcam_samples.csv
+├── day10_gradcam_summary.md
+└── day10_gradcam_summary.json
+
+Grad-CAM is used to inspect model behavior and attention regions. The highlighted regions should not be interpreted as clinical reasoning or proof of a diagnosis.
+
+🛠️ Technology Stack
+
+Technology
+
+Purpose
+
+Python
+
+Programming
+
+PyTorch
+
+Deep Learning
+
+Torchvision
+
+Computer Vision & Models
+
+EfficientNet-B0
+
+Transfer Learning
+
+CUDA
+
+GPU Acceleration
+
+Google Colab
+
+Development
+
+NumPy / Pandas
+
+Data Processing
+
+Matplotlib / Seaborn
+
+Visualization
+
+Scikit-learn
+
+Evaluation & Splitting
+
+Pillow
+
+Image Processing
+
+Grad-CAM
+
+Explainable AI
+
+Streamlit
+
+Planned Deployment
+
+Git & GitHub
+
+Version Control
+
+📁 Repository Structure
+
+MediScan-Medical-Image-Classification/
+│
+├── app/                 # Web application
+├── data/
+│   └── processed/       # Dataset metadata and split CSVs
+├── figures/             # Generated visualizations
+├── models/              # Local model checkpoints
+├── notebooks/           # Day-wise Colab notebooks
+├── reports/             # Day-wise reports and metrics
+├── src/                 # Source code
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+
+Large/private development files are excluded from GitHub:
+
+data/raw/
+
+archive.zip
+
+.pt / .pth model weights
+
+🔬 Current Project Status
+
+Completed through Day 10.
+
+Best Model So Far
+
+Model              : EfficientNet-B0
+Validation Accuracy: 90.09%
+Test Accuracy      : 91.20%
+Test F1-score      : 91.16%
+Grad-CAM Samples   : 12
+
+Next
+
+Day 11 — Second Architecture Comparison
+
+The next stage will compare a second CNN architecture against the current EfficientNet-B0 model.
+
+⚠️ Disclaimer
+
+MediScan is an educational and research-oriented project.
+
+It is not a medical diagnostic system and should not be used as a substitute for professional medical diagnosis, clinical evaluation, or medical advice.
+
+👨‍💻 Project
+
+MediScan — Medical Image Classification
+
+Focus: Brain MRI Image Classification
+Framework: PyTorch
+Current Model: EfficientNet-B0
+Classes: 4
+Progress: Day 10 / 15 Completed
