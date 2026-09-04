@@ -1,0 +1,16 @@
+{
+  "models": {
+    "EfficientNet-B0": {
+      "best_val_accuracy": 0.9009,
+      "best_val_loss": 0.2833,
+      "best_epoch": 9
+    },
+    "ResNet50": {
+      "best_val_accuracy": 0.9,
+      "best_val_loss": 0.3042,
+      "best_epoch": 10
+    }
+  },
+  "best_validation_model": "EfficientNet-B0",
+  "accuracy_difference_percentage_points": 0.09000000000000119
+}
