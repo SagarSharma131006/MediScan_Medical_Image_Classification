@@ -521,11 +521,51 @@ Test Accuracy      : 91.20%
 Test F1-score      : 91.16%
 Grad-CAM Samples   : 12
 
-Next
+# Day 11 — Model Comparison
 
-Day 11 — Second Architecture Comparison
+Compared two pretrained CNN architectures for brain MRI classification: EfficientNet-B0 and ResNet50.
 
-The next stage will compare a second CNN architecture against the current EfficientNet-B0 model.
+## What I did
+
+- Trained a second architecture — ResNet50
+- Used ImageNet pretrained weights
+- Used the same 4-class brain MRI dataset
+- Used the same data split and Day-8 weak augmentation
+- Trained ResNet50 for 10 epochs
+- Compared training and validation performance
+- Evaluated both models on the untouched test set
+- Compared Accuracy, Precision, Recall and F1-score
+- Performed per-class performance comparison
+- Generated confusion matrices for both architectures
+- Selected the better-performing architecture for further development
+
+## Dataset
+
+4 classes:
+- Glioma
+- Meningioma
+- No Tumor
+- Pituitary
+
+Dataset split:
+- Training: 5,040
+- Validation: 1,080
+- Testing: 1,080
+
+## Results
+
+| Model | Test Accuracy | Precision | Recall | F1-Score |
+|---|---:|---:|---:|---:|
+| EfficientNet-B0 | **91.20%** | **0.9132** | **0.9120** | **0.9116** |
+| ResNet50 | 90.93% | 0.9094 | 0.9093 | 0.9083 |
+
+EfficientNet-B0 achieved slightly better overall test performance, while ResNet50 performed particularly well on the No Tumor class.
+
+## Conclusion
+
+EfficientNet-B0 was selected as the final architecture because it achieved the best overall performance on the untouched test set.
+
+Day 11 completed successfully. 🚀
 
 ⚠️ Disclaimer
 
