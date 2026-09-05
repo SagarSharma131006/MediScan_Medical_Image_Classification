@@ -74,7 +74,7 @@ Dataset → EDA & Preprocessing → Model Training → Hyperparameter Tuning →
 | Day 10 | Grad-CAM Explainability | ✅ |
 | Day 11 | Model Comparison | ✅ |
 | Day 12 | Streamlit Web Interface | ✅ |
-| Day 13 | Experiment Tracking | ⏳ |
+| Day 13 | Experiment Tracking | ✅ |
 | Day 14 | Error & Edge Case Analysis | ⏳ |
 | Day 15 | Deployment, Model Card & Presentation | ⏳ |
 
@@ -194,6 +194,44 @@ The application uses the final EfficientNet-B0 model.
 
 ---
 
+---
+
+# 📈 Experiment Tracking
+
+Day 13 integrated **Weights & Biases (W&B)** for experiment tracking and reproducibility.
+
+### Tracked Information
+
+- Model architecture and configuration
+- Learning rate
+- Batch size
+- Dropout
+- Epochs
+- Optimizer and loss function
+- Training loss and accuracy
+- Validation loss and accuracy
+- Test Accuracy, Precision, Recall and F1
+- Per-class Precision, Recall and F1
+- Per-class ROC-AUC
+- Model weights
+- Evaluation reports
+- Training and evaluation figures
+
+### W&B Experiment
+
+- Project: `MediScan-Medical-Image-Classification`
+- Run: `day13-experiment-tracking`
+- Run ID: `xzkmsk5u`
+
+[View W&B Experiment](https://wandb.ai/sagarsharma131006-panipat-institute-of-engineering-and-t/MediScan-Medical-Image-Classification/runs/xzkmsk5u)
+
+### W&B Artifact
+
+`mediscan-efficientnet-b0-results`
+
+The artifact contains the final EfficientNet-B0 model weights, evaluation reports, and important project figures.
+
+
 # 📁 Project Structure
 
 ```text
@@ -227,11 +265,12 @@ MediScan/
 │   ├── day10_*
 │   ├── day11_*
 │   └── day12_*
+│   └── day13_*
 │
 ├── notebooks/
 │   ├── MediScan_Day1_Setup.ipynb
 │   ├── MediScan_Day2_EDA_Data_Preparation.ipynb
 │   ├── ...
-│   └── MediScan_Day12_Web_App_Development.ipynb
+│   └── MediScan_Day13_Experiment_Tracking.ipynb
 │
 └── README.md
