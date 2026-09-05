@@ -1,0 +1,49 @@
+{
+    "day": 13,
+    "title": "Experiment Tracking",
+    "tracking_platform": "Weights & Biases",
+    "project_name": "MediScan-Medical-Image-Classification",
+    "run_name": "day13-experiment-tracking",
+    "run_id": "xzkmsk5u",
+    "run_url": "https://wandb.ai/sagarsharma131006-panipat-institute-of-engineering-and-t/MediScan-Medical-Image-Classification/runs/xzkmsk5u",
+    "model": {
+        "architecture": "EfficientNet-B0",
+        "num_classes": 4,
+        "input_size": "224x224",
+        "pretrained": true
+    },
+    "hyperparameters": {
+        "learning_rate": 0.002,
+        "batch_size": 32,
+        "dropout": 0.1,
+        "epochs": 10,
+        "optimizer": "Adam",
+        "loss": "CrossEntropyLoss",
+        "scheduler": "StepLR",
+        "augmentation": "weak"
+    },
+    "dataset": {
+        "name": "Brain Tumor MRI Dataset",
+        "train_samples": 5040,
+        "validation_samples": 1080,
+        "test_samples": 1080,
+        "classes": [
+            "glioma",
+            "meningioma",
+            "notumor",
+            "pituitary"
+        ]
+    },
+    "performance": {
+        "validation_accuracy": 0.9009259259,
+        "test_accuracy": 0.912037037,
+        "test_precision": 0.9131856562,
+        "test_recall": 0.912037037,
+        "test_f1": 0.9115629701
+    },
+    "artifact": {
+        "name": "mediscan-efficientnet-b0-results",
+        "type": "model"
+    },
+    "completed_at": "2026-09-05T11:32:31.860966"
+}
