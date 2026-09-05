@@ -1,0 +1,49 @@
+{
+    "day": 14,
+    "title": "Error, Edge Case and Bias Analysis",
+    "test_set": {
+        "total_samples": 1080,
+        "correct_predictions": 985,
+        "misclassified_samples": 95,
+        "accuracy": 0.9120370370370371,
+        "error_rate": 0.08796296296296291
+    },
+    "highest_error_class": {
+        "class": "glioma",
+        "error_rate": 0.15925925925925927
+    },
+    "top_failure_mode": {
+        "true_class": "glioma",
+        "predicted_class": "meningioma",
+        "count": 33,
+        "percentage_of_errors": 34.73684210526316
+    },
+    "bias_analysis": {
+        "test_set_balanced": true,
+        "most_under_predicted_class": "glioma",
+        "under_prediction_shift_pp": -2.7777777777777786,
+        "most_over_predicted_class": "notumor",
+        "over_prediction_shift_pp": 1.4814814814814845
+    },
+    "identified_failure_patterns": [
+        "Glioma is the highest-error class.",
+        "Glioma-to-meningioma is the dominant confusion pair.",
+        "Meningioma shows notable confusion with glioma and pituitary.",
+        "The model slightly under-predicts glioma.",
+        "The test dataset is class-balanced, so observed errors are not explained by class imbalance alone."
+    ],
+    "limitations": [
+        "The model may confuse visually similar tumor classes.",
+        "Prediction errors can occur when MRI features overlap between classes.",
+        "Class-level performance is not uniform across all categories.",
+        "The model should not be used as a standalone medical diagnostic system."
+    ],
+    "recommended_improvements": [
+        "Increase diversity of training images.",
+        "Investigate difficult glioma and meningioma samples.",
+        "Evaluate stronger or medically appropriate augmentation.",
+        "Consider fine-tuning deeper backbone layers.",
+        "Perform additional external validation on an independent dataset."
+    ],
+    "generated_at": "2026-09-05T11:54:16.245462"
+}

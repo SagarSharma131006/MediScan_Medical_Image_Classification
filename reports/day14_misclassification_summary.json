@@ -1,0 +1,59 @@
+{
+    "total_test_samples": 1080,
+    "correct_predictions": 985,
+    "misclassified_samples": 95,
+    "test_accuracy": 0.9120370370370371,
+    "error_rate": 0.08796296296296291,
+    "major_failure_modes": [
+        {
+            "true_class": "glioma",
+            "predicted_class": "meningioma",
+            "count": 33
+        },
+        {
+            "true_class": "meningioma",
+            "predicted_class": "pituitary",
+            "count": 15
+        },
+        {
+            "true_class": "meningioma",
+            "predicted_class": "glioma",
+            "count": 13
+        },
+        {
+            "true_class": "glioma",
+            "predicted_class": "notumor",
+            "count": 8
+        },
+        {
+            "true_class": "pituitary",
+            "predicted_class": "meningioma",
+            "count": 8
+        },
+        {
+            "true_class": "meningioma",
+            "predicted_class": "notumor",
+            "count": 7
+        },
+        {
+            "true_class": "pituitary",
+            "predicted_class": "notumor",
+            "count": 5
+        },
+        {
+            "true_class": "notumor",
+            "predicted_class": "meningioma",
+            "count": 3
+        },
+        {
+            "true_class": "glioma",
+            "predicted_class": "pituitary",
+            "count": 2
+        },
+        {
+            "true_class": "notumor",
+            "predicted_class": "pituitary",
+            "count": 1
+        }
+    ]
+}

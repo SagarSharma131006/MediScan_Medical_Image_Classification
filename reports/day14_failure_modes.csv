@@ -1,0 +1,11 @@
+true_label,predicted_label,count,percentage_of_all_errors
+glioma,meningioma,33,34.73684210526316
+meningioma,pituitary,15,15.789473684210526
+meningioma,glioma,13,13.684210526315791
+glioma,notumor,8,8.421052631578947
+pituitary,meningioma,8,8.421052631578947
+meningioma,notumor,7,7.368421052631578
+pituitary,notumor,5,5.263157894736842
+notumor,meningioma,3,3.1578947368421053
+glioma,pituitary,2,2.1052631578947367
+notumor,pituitary,1,1.0526315789473684
