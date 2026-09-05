@@ -76,7 +76,7 @@ Dataset → EDA & Preprocessing → Model Training → Hyperparameter Tuning →
 | Day 12 | Streamlit Web Interface | ✅ |
 | Day 13 | Experiment Tracking | ✅ |
 | Day 14 | Error & Edge Case Analysis | ✅ |
-| Day 15 | Deployment, Model Card & Presentation | ⏳ |
+| Day 15 | Deployment, Model Card & Presentation | ✅ |
 
 ---
 
