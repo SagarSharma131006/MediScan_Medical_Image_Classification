@@ -75,7 +75,7 @@ Dataset → EDA & Preprocessing → Model Training → Hyperparameter Tuning →
 | Day 11 | Model Comparison | ✅ |
 | Day 12 | Streamlit Web Interface | ✅ |
 | Day 13 | Experiment Tracking | ✅ |
-| Day 14 | Error & Edge Case Analysis | ⏳ |
+| Day 14 | Error & Edge Case Analysis | ✅ |
 | Day 15 | Deployment, Model Card & Presentation | ⏳ |
 
 ---
@@ -231,6 +231,25 @@ Day 13 integrated **Weights & Biases (W&B)** for experiment tracking and reprodu
 
 The artifact contains the final EfficientNet-B0 model weights, evaluation reports, and important project figures.
 
+### Day 14 — Error & Edge Case Analysis ✅
+- Identified 95 misclassified test samples
+- Analyzed class-wise error rates and failure modes
+- Identified Glioma → Meningioma as the dominant failure mode
+- Performed class-balance and prediction-distribution bias analysis
+- Visualized representative misclassified MRI samples
+- Documented model limitations and recommended improvements
+- Generated detailed error-analysis reports
+
+### Day 14 Error Analysis
+
+- Test accuracy: 91.20%
+- Misclassified samples: 95 / 1080
+- Highest error class: Glioma — 15.93%
+- Dominant failure mode: Glioma → Meningioma — 33 cases
+- Test set: Balanced — 270 samples per class
+- Most under-predicted class: Glioma — −2.78 percentage points
+- Most over-predicted class: No Tumor — +1.48 percentage points
+
 
 # 📁 Project Structure
 
@@ -266,11 +285,12 @@ MediScan/
 │   ├── day11_*
 │   └── day12_*
 │   └── day13_*
+│   └── day14_*
 │
 ├── notebooks/
 │   ├── MediScan_Day1_Setup.ipynb
 │   ├── MediScan_Day2_EDA_Data_Preparation.ipynb
 │   ├── ...
-│   └── MediScan_Day13_Experiment_Tracking.ipynb
+│   ├── MediScan_Day14_Error_Analysis.ipynb
 │
 └── README.md
