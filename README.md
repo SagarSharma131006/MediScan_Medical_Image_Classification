@@ -294,3 +294,29 @@ MediScan/
 │   ├── MediScan_Day14_Error_Analysis.ipynb
 │
 └── README.md
+
+## 🚀 Day 15 — Deployment & Final Demo
+
+MediScan is deployed as a public Streamlit web application.
+
+**Live Application:** https://mediscanmedicalimageclassification-ywdozzsxzf5nngqvvb48ve.streamlit.app/
+
+### Web App Features
+- Brain MRI image upload
+- Four-class classification:
+  - Glioma
+  - Meningioma
+  - No Tumor
+  - Pituitary
+- Prediction confidence
+- Class probability distribution
+- Grad-CAM explainability visualization
+- Medical-use disclaimer
+
+### Final Model
+- Architecture: EfficientNet-B0
+- Test Accuracy: 91.20%
+- Weighted F1 Score: 91.16%
+- Best Validation Accuracy: 90.09%
+
+> ⚠️ This application is an educational/research demonstration and is not intended for clinical diagnosis or medical decision-making.

@@ -5,3 +5,12 @@ models/*.pt
 models/*.pth
 __pycache__/
 .ipynb_checkpoints/
+# MediScan generated/model artifacts
+*.pth
+*.pt
+*.ckpt
+*.npy
+.env
+*api_key*
+*secret*
+*token*
