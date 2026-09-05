@@ -250,7 +250,6 @@ The artifact contains the final EfficientNet-B0 model weights, evaluation report
 - Most under-predicted class: Glioma — −2.78 percentage points
 - Most over-predicted class: No Tumor — +1.48 percentage points
 
-
 # 📁 Project Structure
 
 ```text
@@ -272,7 +271,8 @@ MediScan/
 │   ├── day8_*
 │   ├── day9_*
 │   ├── day10_*
-│   └── day11_*
+│   ├── day11_*
+│   └── day15_cloud_inference_gradcam_test.png
 │
 ├── models/
 │   └── *.pth
@@ -283,17 +283,23 @@ MediScan/
 │   ├── day9_*
 │   ├── day10_*
 │   ├── day11_*
-│   └── day12_*
-│   └── day13_*
-│   └── day14_*
+│   ├── day12_*
+│   ├── day13_*
+│   ├── day14_*
+│   ├── MediScan_Model_Card.md
+│   └── MediScan_Final_Presentation_Content.md
 │
 ├── notebooks/
 │   ├── MediScan_Day1_Setup.ipynb
 │   ├── MediScan_Day2_EDA_Data_Preparation.ipynb
 │   ├── ...
 │   ├── MediScan_Day14_Error_Analysis.ipynb
+│   └── MediScan_Day15_Deployment_Final_Demo.ipynb
 │
-└── README.md
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
 
 ## 🚀 Day 15 — Deployment & Final Demo
 
@@ -302,21 +308,26 @@ MediScan is deployed as a public Streamlit web application.
 **Live Application:** https://mediscanmedicalimageclassification-ywdozzsxzf5nngqvvb48ve.streamlit.app/
 
 ### Web App Features
+
 - Brain MRI image upload
-- Four-class classification:
-  - Glioma
-  - Meningioma
-  - No Tumor
-  - Pituitary
+- Four-class classification: Glioma, Meningioma, No Tumor, Pituitary
 - Prediction confidence
 - Class probability distribution
 - Grad-CAM explainability visualization
 - Medical-use disclaimer
 
 ### Final Model
+
 - Architecture: EfficientNet-B0
-- Test Accuracy: 91.20%
-- Weighted F1 Score: 91.16%
-- Best Validation Accuracy: 90.09%
+- Test Accuracy: **91.20%**
+- Weighted F1 Score: **91.16%**
+- Best Validation Accuracy: **90.09%**
+
+### Final Documentation
+
+- Model Card
+- Final Presentation Content
+- Day 15 Deployment & Final Demo Notebook
+- Cloud inference + Grad-CAM verification
 
 > ⚠️ This application is an educational/research demonstration and is not intended for clinical diagnosis or medical decision-making.
